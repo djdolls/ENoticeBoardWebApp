@@ -1,34 +1,99 @@
+
 <!DOCTYPE html>
-<html>
+<html >
 <head>
-	<title>AngularJS and Firebase App</title>
+  <meta charset="UTF-8">
+  <title>Day 001 Login Form</title>
+  
+  
+  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:600'>
+
+      <link rel="stylesheet" href="signupcss/style.css">
+
+  
 </head>
+
 <body ng-controller="HomeCtrl">
 
-<div class="container">
-	<div class="jumbotron col-md-6 col-md-offset-3" style="padding-top: 0; padding-bottom: 0;">
-		<h2>WebApp Login Page</h2>
-	</div>
-	<form role="form" name="loginForm" novalidate="">
-		<div class="form-group col-md-6 col-md-offset-3" ng-class="{'has-error': loginForm.email.$invalid && loginForm.email.$touched}">
-			<label for="email">Email Address</label>
-			<input type="email" name="email" ng-model="user.email" class="form-control" placeholder="Email Address" required="" />
-			<small class="help-block" ng-show="loginForm.email.$invalid && loginForm.email.$touched">Please enter an Email Address</small>
-		</div>
-		<div class="form-group col-md-6 col-md-offset-3" ng-class="{'has-error': loginForm.password.$invalid && loginForm.password.$touched}">
-			<label for="password">Password</label>
-			<input type="password" name="password" ng-model="user.password" class="form-control" placeholder="Password" required="" ng-minlength = 8 />
-			<small class="help-block" ng-show="loginForm.password.$error.minlength && loginForm.password.$touched">Password must be atleast 8 characters.</small>
-		</div>
-		<div class="checkbox col-md-6 col-md-offset-3">
-			<label><a href="#/register">Sign Up</a></label>
-		</div>
-		<div class="col-md-6 col-md-offset-3">
-			<p ng-show="errMsg" style="color: red;">{{errorMessage}}</p>
-			<button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="loginForm.$invalid" ng-click="signIn()">Sign In</button>
-		</div>
-	</form>
-</div>
+  <div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+		<div class="login-form">
+		<form role="form" name="loginForm" novalidate="">
+			<div class="sign-in-htm">
+				<div class="group"  ng-class="{'has-error': loginForm.email.$invalid && loginForm.email.$touched}">
+					<label for="email" class="label">Email</label>
+					<input  type="email"  name="email" class="input"  ng-model="user.email" class="form-control" placeholder="Email Address" required="">
+					<small style="color:white; class="help-block" ng-show="loginForm.email.$invalid && loginForm.email.$touched">Please enter an Email Address</small>
+				</div>
+				<div class="group"  ng-class="{'has-error': loginForm.password.$invalid && loginForm.password.$touched}">
+					<label for="password" class="label">Password</label>
+					<input  type="password" name="password" class="input"  ng-model="user.password" placeholder="Password" required="" ng-minlength = 8>
+					<small style="color:white;" class="help-block" ng-show="loginForm.password.$error.minlength && loginForm.password.$touched">Password must be atleast 8 characters.</small>
+				</div>
+				<div class="group">
+					<input id="check" type="checkbox" class="check" checked>
+					<label for="check"><span class="icon"></span> Keep me Signed in</label>
+				</div>
+				<div class="group">
+					<p ng-show="errMsg" style="color: red;">{{errorMessage}}</p>
+					<button style="color:white;"type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="loginForm.$invalid" ng-click="signIn()">Sign In</button>
+				</div>
+				<div class="hr"></div>
+				<div class="foot-lnk">
+					<a href="#forgot">Forgot Password?</a>
+				</div>
+			</div>
+		</form>
+	
+			<div class="sign-up-htm">
+			<form role="form" name="regForm" novalidate="">
+				<div class="group" ng-class="{'has-error': regForm.email.$invalid && regForm.email.$touched}">
+					<label for="email" class="label">Email Address</label>
+					<input name="email" ng-model="user.email"  placeholder="Email Address" required=""  type="email" class="input">
+					<small class="help-block" ng-show="regForm.email.$invalid && regForm.email.$touched">Please enter an Email Address</small>
+				</div>
+				<div class="group"  ng-class="{'has-error': regForm.password.$invalid && regForm.password.$touched}">
+					<label for="password" class="label">Password</label>
+					<input  name="password" ng-model="user.password" placeholder="Password" required="" ng-minlength = 8 type="password" class="input" data-type="password">
+					<small class="help-block" ng-show="regForm.password.$error.minlength && regForm.password.$touched">Password must be atleast 8 characters.</small>
+				</div>
+				<div class="group">
+					<label for="username" class="label">Username</label>
+					<input type="username" name="username" ng-model="user.username" class="input" placeholder="username" required="">
+				</div>
+				<div class="group">
+					<label for="department" class="label">Department</label>
+					<select class="input" ng-model="user.val" class="form-control" name="department" placeholder="department" required="">
+        		<option value="CSE">CSE</option>
+        		<option value="Mech">Mech</option>
+        		
+        	</select>
+				</div>
+				<div class="group">
+					<label for="post" class="label">Post</label>
+					<select class="input" ng-model="user.post"  name="post" placeholder="post" required="">
+						<option value="HOD">Head of Department</option>
+						<option value="AP">Assistant Professor</option>
 
+					</select>
+				</div>
+				<div >
+			<p ng-show="errMsg" style="color: red;">{{errorMessage}}</p>
+			<button   type="submit" class="btn btn-lg btn-primary btn-block btn1" ng-disabled="regForm.$invalid" ng-click="signUp()"><h5 class="msg1"  >Sign Up<h5> <h5 class="msg"  >Successfully registerd <h5></button>
+			<!--<p class="msg" style="color:#7CFC00; text-align:center;">Hellow</p>-->
+		</div>
+				
+			</form>
+			</div>
+		</div>
+
+		
+
+	</div>
+</div>
+  
+  
 </body>
 </html>
