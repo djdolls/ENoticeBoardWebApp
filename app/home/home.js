@@ -60,7 +60,7 @@ angular.module('EnoticeBoardWebApp.home',['ngRoute','firebase'])
 	mm='0'+mm;
             } 
         var today = dd+'/'+mm+'/'+yyyy;
-         console.log(name);
+         console.log(today);
              
 
 		if(username&&password&&name&&val&&post){
@@ -80,7 +80,7 @@ angular.module('EnoticeBoardWebApp.home',['ngRoute','firebase'])
             	images : "http://s3.amazonaws.com/cdn.roosterteeth.com/default/tb/user_profile_male.jpg",
             	level : 99,
             	name : name,
-            	time : "2/10/1995"
+            	time : today
   });
 $location.path('/home');
           
@@ -98,7 +98,7 @@ $location.path('/home');
 	else{
 		alert("Input all values");
 	}
-
+ 	
   $(".msg").show();
    $(".msg1").hide();
 		
