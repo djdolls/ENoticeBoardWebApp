@@ -12,32 +12,33 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="pics/main.css">
     <link rel="stylesheet" href="css/style.css">
-     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-      <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-       <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-indigo.min.css" /> 
-       <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-       <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-indigo.min.css" />
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
-     <style>
-              .demo-card-square.mdl-card {
-               width: 320px;
-               height: 320px;
-            }
-              .demo-card-square > .mdl-card__title {
-               color: #fff;
-               background:
-               bottom right 15% no-repeat #46B6AC;
-            }
-            .pad{
-                align-content: center;
-            }
-     </style>
+    <style>
+        .demo-card-square.mdl-card {
+            width: 320px;
+            height: 320px;
+        }
+        
+        .demo-card-square > .mdl-card__title {
+            color: #fff;
+            background: bottom right 15% no-repeat #46B6AC;
+        }
+        
+        .pad {
+            align-content: center;
+        }
+    </style>
     <style>
         body[_ngcontent-ytd-11] {
             -ms-overflow-x: hidden;
@@ -207,22 +208,25 @@
                 border-left-width: 0
             }
         }
+        .texture {
+            background-color: #ffffff;
+            background-image: url("https://www.transparenttextures.com/patterns/climpek.png");
+            /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+        }
         /*# sourceMappingURL=timeline.css.map */
     </style>
 </head>
 
 <body ng-app="EnoticeBoardWebApp">
-      <sd-app>
+    <sd-app>
         <router-outlet></router-outlet>
         <dashboard-cmp>
             <top-nav>
                 <nav class="navbar navbar-dark bg-inverse navbar-fixed-top topnav">
-                    <div class="collapse navbar-toggleable-xs clearfix text-center">
-                     
-                     <a class="navbar-brand" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/%2Fhome">Enotice Board</a>
+                    <div class="collapse navbar-toggleable-xs clearfix text-center"> <a class="navbar-brand" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/%2Fhome">Enotice Board</a>
                         <ul class="nav navbar-nav top-nav navbar-right pull-xs-right top-right-nav">
                             <li class="nav-item buy-now"> <a class="btn btn-default-outline buy-now-btn" href="https://github.com/start-angular/SB-Admin-BS4-Angular-2/archive/master.zip" role="button" style="padding: .375rem 1rem !important; border-color: #999;">Download App</a> </li>
-                            <li class="dropdown nav-item" dropdown=""> <a class="nav-link dropdown-toggle" dropdowntoggle="" href="javascript:;" id="dropdownMenu4" aria-haspopup="true"><i class="fa fa-envelope"></i> <b class="caret"></b><span class="sr-only">(current)</span></a>
+                            <li class="dropdown nav-item" dropdown=""> <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:;" id="dropdownMenu4" aria-haspopup="true"><i class="fa fa-envelope"></i> <span class="sr-only">(current)</span></a>
                                 <ul aria-labelledby="dropdownMenu4" class="dropdown-menu message-dropdown">
                                     <li class="message-preview">
                                         <a class="dropdown-item" href="javascript:;">
@@ -264,7 +268,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown nav-item" dropdown="">
-                                <a class="nav-link dropdown-toggle" dropdowntoggle="" href="javascript:;" id="name2" aria-haspopup="true"> <i class="fa fa-bell"></i> <b class="caret"></b><span class="sr-only">(current)</span> </a>
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:;" id="name2" aria-haspopup="true"> <i class="fa fa-bell"></i> <span class="sr-only">(current)</span> </a>
                                 <ul aria-labelledby="name2" class="dropdown-menu alert-dropdown">
                                     <li> <a class="dropdown-item" href="javascript:;">Alert Name <span class="label label-default"> Alert Badge</span></a> </li>
                                     <li> <a class="dropdown-item" href="javascript:;">Alert Name <span class="label label-default"> Alert Badge</span></a> </li>
@@ -274,7 +278,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown nav-item" dropdown="">
-                                <a class="nav-link dropdown-toggle" dropdowntoggle="" href="javascript:;" id="single-button" aria-haspopup="true"> <i class="fa fa-user"></i> {{name}} <b class="caret"></b> </a>
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:;" id="single-button" aria-haspopup="true"> <i class="fa fa-user"></i> {{name}}</a>
                                 <ul aria-labelledby="single-button" class="dropdown-menu">
                                     <li> <a class="dropdown-item" href="javascript:;"><i class="fa fa-fw fa-user"></i> Profile</a> </li>
                                     <li> <a class="dropdown-item" href="javascript:;"><i class="fa fa-fw fa-envelope"></i> Inbox</a> </li>
@@ -293,12 +297,12 @@
                 <button class="btn btn-default" id="toggle-sidebar" type="button"> ☰ </button>
                 <nav class="sidebar">
                     <ul class="list-group">
-                        <a class="list-group-item "  href="#/dashboard"> <i class="fa fa-fw fa-dashboard"></i> Home</a>
-                        <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/chart"> <i class="fa fa-fw fa-bar-chart-o"></i> Profile </a>
-                        <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/tables"> <i class="fa fa-fw fa-table"></i>Pending Approval</a>
+                        <a class="list-group-item " href="#/dashboard"> <i class="fa fa-fw fa-dashboard"></i> Home</a>
+                        <a class="list-group-item" href="#/profile"> <i class="fa fa-fw fa-bar-chart-o"></i> Profile </a>
+                        <a class="list-group-item" href="#/pending"> <i class="fa fa-fw fa-table"></i>Pending Approval</a>
                         <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/forms"> <i class="fa fa-fw fa-edit"></i>New Documents</a>
                         <a class="list-group-item router-link-active" routerlink="#/viewuser" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/element"> <i class="fa fa-fw fa-desktop"></i> View Users </a>
-                        <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/grid"> <i class="fa fa-fw fa-wrench"></i> Other Department  </a>
+                        <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/grid"> <i class="fa fa-fw fa-wrench"></i> Other Department </a>
                         <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/components"> <i class="fa fa-th-list"></i> &nbsp;Component </a>
                         <div class="nested-menu">
                             <a class="list-group-item"> <span><i class="fa fa-plus"></i> &nbsp; Logout</span> </a>
@@ -312,32 +316,21 @@
                         <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/blankpage"> <i class="fa fa-file-o"></i> &nbsp;About us </a> <a class="list-group-item more-themes" href="http://www.strapui.com/">             More Themes         </a> </ul>
                 </nav>
             </sidebar-cmp>
-            <section class="main-container">
-
+            <section class="main-container texture">
                 <div ng-repeat="user in articles">
-                  <figure class="snip1336">
-                      <img src="http://www.twitrcovers.com/wp-content/uploads/2013/12/Fields-Nature-Summer-l.jpg" alt="sample87" />
-                      <figcaption>
-                        <img src="{{user.images}}" class="profile" />
-                        <h4>{{user.name}} </h4>
-                        <div>
-                            <h6>Block :  <span>          {{user.block}}</span></h6>
-                            <h6>Current Post :  <span>          {{user.DEST}}</span></h6>
-
-                        </div>
-                        <p>Block this user if you do not want to recieve furthure notice from particular user </p>
-                        <a  class="follow " ng-click="block(user.$id)">Block</a>
-                        <a  class="info" ng-click="unblock(user.$id)">Unblock</a>
-                    </figcaption>
-                </figure>
-            </div>
-  
-
-               
+                    <figure class="snip1336"> <img src="http://www.twitrcovers.com/wp-content/uploads/2013/12/Fields-Nature-Summer-l.jpg" alt="sample87" />
+                        <figcaption> <img src="{{user.images}}" class="profile" />
+                            <h4>{{user.name}} </h4>
+                            <div>
+                                <h6>Block :  <span>          {{user.block}}</span></h6>
+                                <h6>Current Post :  <span>          {{user.DEST}}</span></h6> </div>
+                            <p>Block this user if you do not want to recieve furthure notice from particular user </p> <a class="follow " ng-click="block(user.$id)">Block</a> <a class="info" ng-click="unblock(user.$id)">Unblock</a> </figcaption>
+                    </figure>
+                </div>
             </section>
         </dashboard-cmp>
     </sd-app>
-      <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script>
         // Fixes undefined module function in SystemJS bundle
         function module() {}

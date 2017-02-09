@@ -210,11 +210,18 @@
                 border-left-width: 0
             }
         }
+        .texture {
+            height: 100%;
+            background-color: #ffffff;
+            background-image: url("https://www.transparenttextures.com/patterns/climpek.png");
+            /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+        }
         /*# sourceMappingURL=timeline.css.map */
     </style>
 </head>
 
 <body ng-app="EnoticeBoardWebApp">
+    <div class="texture" align="center" style="align-content: center">
     <sd-app>
         <router-outlet></router-outlet>
         <dashboard-cmp>
@@ -223,7 +230,7 @@
                     <div class="collapse navbar-toggleable-xs clearfix text-center"> <a class="navbar-brand" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/%2Fhome">Enotice Board</a>
                         <ul class="nav navbar-nav top-nav navbar-right pull-xs-right top-right-nav">
                             <li class="nav-item buy-now"> <a class="btn btn-default-outline buy-now-btn" href="https://github.com/start-angular/SB-Admin-BS4-Angular-2/archive/master.zip" role="button" style="padding: .375rem 1rem !important; border-color: #999;">Download App</a> </li>
-                            <li class="dropdown nav-item" dropdown=""> <a class="nav-link dropdown-toggle" dropdowntoggle="" href="javascript:;" id="dropdownMenu4" aria-haspopup="true"><i class="fa fa-envelope"></i> <b class="caret"></b><span class="sr-only">(current)</span></a>
+                            <li class="dropdown nav-item" dropdown=""> <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:;" id="dropdownMenu4" aria-haspopup="true"><i class="fa fa-envelope"></i><span class="sr-only">(current)</span></a>
                                 <ul aria-labelledby="dropdownMenu4" class="dropdown-menu message-dropdown">
                                     <li class="message-preview">
                                         <a class="dropdown-item" href="javascript:;">
@@ -265,7 +272,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown nav-item" dropdown="">
-                                <a class="nav-link dropdown-toggle" dropdowntoggle="" href="javascript:;" id="name2" aria-haspopup="true"> <i class="fa fa-bell"></i> <b class="caret"></b><span class="sr-only">(current)</span> </a>
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:;" id="name2" aria-haspopup="true"> <i class="fa fa-bell"></i><span class="sr-only">(current)</span> </a>
                                 <ul aria-labelledby="name2" class="dropdown-menu alert-dropdown">
                                     <li> <a class="dropdown-item" href="javascript:;">Alert Name <span class="label label-default"> Alert Badge</span></a> </li>
                                     <li> <a class="dropdown-item" href="javascript:;">Alert Name <span class="label label-default"> Alert Badge</span></a> </li>
@@ -275,8 +282,9 @@
                                 </ul>
                             </li>
                             <li class="dropdown nav-item" dropdown="">
-                                <a class="nav-link dropdown-toggle" dropdowntoggle="" href="javascript:;" id="single-button" aria-haspopup="true"> <i class="fa fa-user"></i>
-                                    <h8></h8> <b class="caret"></b> </a>
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:;" id="single-button" aria-haspopup="true"> <i class="fa fa-user"></i>{{name}}
+                                    <h8></h8>
+                                </a>
                                 <ul aria-labelledby="single-button" class="dropdown-menu">
                                     <li> <a class="dropdown-item" href="javascript:;"><i class="fa fa-fw fa-user"></i> Profile</a> </li>
                                     <li> <a class="dropdown-item" href="javascript:;"><i class="fa fa-fw fa-envelope"></i> Inbox</a> </li>
@@ -297,7 +305,7 @@
                     <ul class="list-group">
                         <a class="list-group-item " href="#/dashboard"> <i class="fa fa-fw fa-dashboard"></i> Home</a>
                         <a class="list-group-item router-link-active" href="#/profile" routerlink="#/profile"> <i class="fa fa-fw fa-bar-chart-o"></i> Profile </a>
-                        <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/tables"> <i class="fa fa-fw fa-table"></i>Pending Approval</a>
+                        <a class="list-group-item" href="#/pending"> <i class="fa fa-fw fa-table"></i>Pending Approval</a>
                         <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/forms"> <i class="fa fa-fw fa-edit"></i>New Documents</a>
                         <a class="list-group-item " href="#/viewuser"> <i class="fa fa-fw fa-desktop"></i> View Users </a>
                         <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/grid"> <i class="fa fa-fw fa-wrench"></i> Other Department </a>
@@ -314,7 +322,7 @@
                         <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/blankpage"> <i class="fa fa-file-o"></i> &nbsp;Logout </a> <a class="list-group-item more-themes" href="http://www.strapui.com/">             More Themes         </a> </ul>
                 </nav>
             </sidebar-cmp>
-            <section class="main-container">
+            <section class="container main-container texture">
                 <div class="card">
                     <!-- Face 2 -->
                     <div class="card-face face-1">
@@ -334,6 +342,7 @@
             </section>
         </dashboard-cmp>
     </sd-app>
+    </div>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script>
         // Fixes undefined module function in SystemJS bundle
