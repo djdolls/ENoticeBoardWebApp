@@ -12,8 +12,6 @@ angular.module('EnoticeBoardWebApp', [
   'EnoticeBoardWebApp.temp',
   'EnoticeBoardWebApp.dashboard',
   'EnoticeBoardWebApp.register',
-  'EnoticeBoardWebApp.blank',
-  'EnoticeBoardWebApp.uploadpic',
   'EnoticeBoardWebApp.newdocument'
 
 
