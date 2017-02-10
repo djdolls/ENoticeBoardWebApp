@@ -547,8 +547,8 @@ background: linear-gradient(to left, #283048 , #859398);
                     <ul class="list-group">
                         <a class="list-group-item router-link-active" routerlink="/dashboard/home" href="#/dashboard"> <i class="fa fa-fw fa-dashboard"></i> Home</a>
                         <a class="list-group-item" href="#/profile"> <i class="fa fa-fw fa-bar-chart-o"></i> Profile </a>
-                        <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/tables"> <i class="fa fa-fw fa-table"></i>Pending Approval</a>
-                        <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/forms"> <i class="fa fa-fw fa-edit"></i>New Documents</a>
+                        <a class="list-group-item" href="#/pending"> <i class="fa fa-fw fa-table"></i>Pending Approval</a>
+                        <a class="list-group-item" href="#/newdocument"> <i class="fa fa-fw fa-edit"></i>New Documents</a>
                         <a class="list-group-item" href="#/viewuser"> <i class="fa fa-fw fa-desktop"></i> View Users </a>
                         <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/grid"> <i class="fa fa-fw fa-wrench"></i> Other Department </a>
                         <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/components"> <i class="fa fa-th-list"></i> &nbsp;Component </a>
@@ -592,31 +592,9 @@ background: linear-gradient(to left, #283048 , #859398);
                                                     <br> </div>
                                                 <label for="image" class="col-lg-2 control-label" style="color : white">ImageUpload</label>
                                                 <div class="col-lg-10">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <label>Select an image ...</label>
-                                                            <div class="panel panel-default img-upload">
-                                                                <div class="panel-heading">
-                                                                    <ul class="nav nav-pills">
-                                                                        <li class="img-file-btn active"> <a href="javascript:;">File</a> </li>
-                                                                        <li class="img-url-btn"> <a href="javascript:;">URL</a> </li>
-                                                                    </ul>
-                                                                </div>
-                                                                <div class="panel-body img-file-tab">
-                                                                    <div> <span class="btn btn-default btn-file img-select-btn">
-                                    <span>Browse</span>
-                                                                        <input type="file" name="img-file-input"> </span> <span class="btn btn-default img-remove-btn">Remove</span> </div>
-                                                                </div>
-                                                                <div class="panel-body img-url-tab">
-                                                                    <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="http://example.com/image.jpg"> <span class="input-group-btn">
-                                    <span class="btn btn-default img-select-btn">Submit</span> </span>
-                                                                    </div>
-                                                                    <input type="hidden" name="img-url-input"> </div>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                    <input type="file" style="color : white" name="image" id="pic"> <img src="" width="200" style="display:none;" />
+                                                    <input type="file" style="color : white" name="image" id="pic"> 
+                                                    <img ng-src="{{path}}" alt="W3Schools.com" style="width:104px;height:142px;">
+                                                    <img id="imag" ng-src={{path}} width="200" style="display:none;" />
                                                     <br>
                                                     <button type="button" class="btn btn-upload btn-outline" ng-click="upload()"><i class="fa fa-upload" aria-hidden="true"></i> </button>
                                                 </div>
