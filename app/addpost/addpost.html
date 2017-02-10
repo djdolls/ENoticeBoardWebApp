@@ -1,195 +1,37 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <title>Add Post</title>
+	<title>Add Post</title>
 </head>
-<style>
-    .btn-outline {
-        background-color: whitesmoke;
-        color: inherit;
-        transition: all .5s;
-    }
+<body ng-app = "EnoticeBoardWebApp">
+<div class="container">
+	<h2>Add Post</h2>
+	<form role = "form" name="postform" ng-submit="createPost()" novalidate="">
+		<legend>Create the Post</legend>
+		<div class="col-md-5">
+			<div class="form-group" >
+				<label for="titletxt">Post Title</label>
+				<input type="text" name="titletxt" class="form-control" placeholder="Title" ng-model="articles.titletxt" required="" >
+               
+			</div>
+			<div class="form-group"  >
+				<label for="posttxt">Post</label>
+				<textarea name="posttxt" class="form-control" placeholder="Post" ng-model="articles.posttxt"></textarea >
 
-    .btn-primary.btn-outline {
-        color: #428bca;
-    }
+			</div>
+			<div class="form-group"  >
+				<label for="image">ImageUpload</label>
+				<input type="file" name="image" id="file">
+				<button type="button" ng-click="upload()">Upload</button>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Add Post</button>
+			</div>
+			
+			
+		</div>
+	</form>
 
-    .btn-success.btn-outline {
-        color: #5cb85c;
-    }
-    
-    .btn-upload.btn-outline {
-        color: cadetblue;
-    }
-    
-    .btn-clear.btn-outline {
-        color: olivedrab;
-    }
-    
-    .btn-post.btn-outline {
-        color: yellowgreen;
-    }
-
-    .btn-info.btn-outline {
-        color: #5bc0de;
-    }
-
-    .btn-warning.btn-outline {
-        color: #f0ad4e;
-    }
-
-    .btn-danger.btn-outline {
-        color: #d9534f;
-    }
-    .btn-primary.btn-outline:hover,
-    .btn-upload.btn-outline:hover,
-    .btn-clear.btn-outline:hover,
-    .btn-post.btn-outline:hover,
-        .btn-success.btn-outline:hover,
-        .btn-info.btn-outline:hover,
-        .btn-warning.btn-outline:hover,
-        .btn-danger.btn-outline:hover {
-            color: #fff;
-        }
-    .back {
-       
-
-background: #283048; /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #283048 , #859398); /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #283048 , #859398); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        
-    }
-    
-    .mback{
-        
-
-background: #abbaab; /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #abbaab , #ffffff); /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #abbaab , #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        
-    }
-    
-    .top-buffer {
-        margin-top: 80px;
-    }
-    
-    .top-buffer2 {
-        margin-top: 25px;
-        clear: left;
-        margin: 5px;
-        padding: 5px;
-    }
-    
-    .btn-upload:hover,
-    .btn-upload:active:hover {
-        background-color: cadetblue
-    }
-
-    .btn-upload:active {
-        -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4)
-    }
-    
-    .btn-clear:hover,
-    .btn-clear:active:hover {
-        background-color: olivedrab
-    }
-
-    .btn-clear:active {
-        -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4)
-    }
-    
-    .btn-post:hover,
-    .btn-post:active:hover {
-        background-color: yellowgreen
-    }
-
-    .btn-post:active {
-        -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4)
-    }
-</style>
-
-<body ng-app="EnoticeBoardWebApp">
-    <div class="container mback">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="panel panel-default top-buffer back">
-                    <div class="panel-body">
-                        <div class="bs-component">
-                            <form class="form-horizontal" role="form" name="postform" ng-submit="createPost()" novalidate="">
-                                <fieldset>
-                                    <legend style="color : white">New Post</legend>
-                                    <label for="titletxt" class="col-lg-2 control-label" style="color : white">Title</label>
-                                    <div class="col-lg-10">
-                                        <input type="text" name="titletxt" class="form-control" placeholder="Title" ng-model="articles.titletxt" required=""> </div>
-                                    <div class="row">
-                                        <br>
-                                        <br> </div>
-                                    <label for="textArea2" class="col-lg-2 control-label" style="color : white">Body</label>
-                                    <div class="col-lg-10">
-                                        <textarea name="posttxt" class="form-control" placeholder="Post" ng-model="articles.posttxt"></textarea>
-                                    </div>
-                                    <div class="row">
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br> </div>
-                                    <label for="image" class="col-lg-2 control-label" style="color : white">ImageUpload</label>
-                                    <div class="col-lg-10">
-                                        <input type="file" style="color : white" name="image" id="file">
-                                        <br>
-                                        <button type="button" class="btn btn-upload btn-outline" ng-click="upload()"><i class="fa fa-upload" aria-hidden="true"></i> </button>
-                                    </div>
-                                    <div class="row">
-                                        <br> </div>
-                                    <div class="pull-right">
-                                        <button type="reset" class="btn btn-clear btn-outline">Clear</button>&nbsp;
-                                        <button type="submit" name="addpost" class="btn btn-post btn-outline">POST</button>
-                                    </div>
-                                </fieldset>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--
-        <h2>Add Post</h2>
-        <form role="form" name="postform" ng-submit="createPost()" novalidate="">
-            <legend>Create the Post</legend>
-            <div class="col-md-5">
-                <div class="form-group">
-                    <label for="titletxt">Post Title</label>
-                    <input type="text" name="titletxt" class="form-control" placeholder="Title" ng-model="articles.titletxt" required=""> </div>
-                <div class="form-group">
-                    <label for="posttxt">Post</label>
-                    <textarea name="posttxt" class="form-control" placeholder="Post" ng-model="articles.posttxt"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="image">ImageUpload</label>
-                    <input type="file" name="image" id="file">
-                    <button type="button" ng-click="upload()">Upload</button>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-outline-success">Add Post</button>
-                </div>
-            </div>
-        </form>
-        -->
-    </div>
+</div>
 </body>
-
 </html>

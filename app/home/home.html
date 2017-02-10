@@ -25,7 +25,7 @@
 				<div class="group"  ng-class="{'has-error': loginForm.email.$invalid && loginForm.email.$touched}">
 					<label for="email" class="label">Email</label>
 					<input  type="email"  name="email" class="input"  ng-model="user.email" class="form-control" placeholder="Email Address" required="">
-					<small style="color:white;" class="help-block" ng-show="loginForm.email.$invalid && loginForm.email.$touched">Please enter an Email Address</small>
+					<small style="color:white; class="help-block" ng-show="loginForm.email.$invalid && loginForm.email.$touched">Please enter an Email Address</small>
 				</div>
 				<div class="group"  ng-class="{'has-error': loginForm.password.$invalid && loginForm.password.$touched}">
 					<label for="password" class="label">Password</label>
@@ -81,7 +81,7 @@
 				</div>
 				<div >
 			<p ng-show="errMsg" style="color: red;">{{errorMessage}}</p>
-                    <button   type="submit" class="btn btn-lg btn-primary btn-block btn1" ng-disabled="regForm.$invalid" ng-click="signUp()"><h5 class="msg1"  >Sign Up</h5><h5 class="msg"  >Successfully registerd </h5></button>
+			<button   type="submit" class="btn btn-lg btn-primary btn-block btn1" ng-disabled="regForm.$invalid" ng-click="signUp()"><h5 class="msg1"  >Sign Up<h5> <h5 class="msg"  >Successfully registerd <h5></button>
 			<!--<p class="msg" style="color:#7CFC00; text-align:center;">Hellow</p>-->
 		</div>
 				
