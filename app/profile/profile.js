@@ -23,7 +23,7 @@ firebase.auth().onAuthStateChanged(function(user) {
    var Block = snapshot.val().block;
    $scope.images = Images
    $("#name1").append(username);
-    $("#name2").append(username);
+    $("#single-button").append(username);
     $("#depth1").append(Department);
     $("#block1").append(Block);
     // $("#img").append("src = " + Images);

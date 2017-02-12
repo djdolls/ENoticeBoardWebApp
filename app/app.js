@@ -10,8 +10,12 @@ angular.module('EnoticeBoardWebApp', [
   'EnoticeBoardWebApp.viewuser',
   'EnoticeBoardWebApp.addpost',
   'EnoticeBoardWebApp.temp',
+  'EnoticeBoardWebApp.loader',
   'EnoticeBoardWebApp.dashboard',
   'EnoticeBoardWebApp.register',
+  'EnoticeBoardWebApp.blank',
+  'EnoticeBoardWebApp.newpost',
+  'EnoticeBoardWebApp.uploadpic',
   'EnoticeBoardWebApp.newdocument'
 
 
