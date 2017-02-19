@@ -7,7 +7,7 @@ angular.module('EnoticeBoardWebApp.home', ['ngRoute', 'firebase']).config(['$rou
 }]).controller('HomeCtrl', ['$scope', '$timeout', '$firebaseAuth', '$firebaseArray', '$location', 'CommonProp', function ($scope, $timeout, $firebaseAuth, $firebaseArray, $location, CommonProp) {
     $scope.username = CommonProp.getUser();
     if ($scope.username) {
-        $location.path('/welcome');
+        $location.path('/dashboard');
     }
     $(".msg").hide();
     $(".msg1").show();
@@ -35,7 +35,7 @@ angular.module('EnoticeBoardWebApp.home', ['ngRoute', 'firebase']).config(['$rou
         }
         //signup
     $scope.signUp = function () {
-        var username = $scope.user.email;
+      /*  var username = $scope.user.email;
         var password = $scope.user.password;
         var name = $scope.user.username;
         var val = $scope.user.val;
@@ -82,6 +82,7 @@ angular.module('EnoticeBoardWebApp.home', ['ngRoute', 'firebase']).config(['$rou
         }
         $(".msg").show();
         $(".msg1").hide();
+        */
     };
 }]).service('CommonProp', ['$location', '$firebaseAuth', function ($location, $firebaseAuth) {
     var user = "";

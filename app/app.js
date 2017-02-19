@@ -16,6 +16,10 @@ angular.module('EnoticeBoardWebApp', [
   'EnoticeBoardWebApp.blank',
   'EnoticeBoardWebApp.newpost',
   'EnoticeBoardWebApp.uploadpic',
+  'EnoticeBoardWebApp.viewdocument',
+  'EnoticeBoardWebApp.otherdepartment',
+  'EnoticeBoardWebApp.addtext',
+  'EnoticeBoardWebApp.pdf',
   'EnoticeBoardWebApp.newdocument'
 
 

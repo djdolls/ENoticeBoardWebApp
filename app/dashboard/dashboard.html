@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- inject:css -->
     <link rel="stylesheet" href="pics/main.css">
+      <link rel="stylesheet" href="pendingcss/style.css" media="screen" type="text/css" />
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
@@ -230,6 +231,19 @@
         }
         /*# sourceMappingURL=timeline.css.map */
     </style>
+    <style>
+.demo-card-wide.mdl-card {
+  width: 512px;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+ 
+ 
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+</style>
 </head>
 
 <body ng-app="EnoticeBoardWebApp">
@@ -238,58 +252,40 @@
         <dashboard-cmp>
             <top-nav>
                 <nav class="navbar navbar-dark bg-inverse navbar-fixed-top topnav">
-                    <div class="collapse navbar-toggleable-xs clearfix text-center"> <a class="navbar-brand" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/%2Fhome">Enotice Board</a>
+                    <div class="collapse navbar-toggleable-xs clearfix text-center"> <a class="navbar-brand" href="#/dashboard">Enotice Board</a>
                         <ul class="nav navbar-nav top-nav navbar-right pull-xs-right top-right-nav">
                             <li class="nav-item buy-now"> <a class="btn btn-default-outline buy-now-btn" href="https://github.com/start-angular/SB-Admin-BS4-Angular-2/archive/master.zip" role="button" style="padding: .375rem 1rem !important; border-color: #999;">Download App</a> </li>
                             <li class="dropdown nav-item" dropdown=""> <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:;" id="dropdownMenu4" aria-haspopup="true"><i class="fa fa-envelope"></i><span class="sr-only">(current)</span></a>
                                 <ul aria-labelledby="dropdownMenu4" class="dropdown-menu message-dropdown">
-                                    <li class="message-preview">
+                                   
+                                               
+                                
+                                    <div ng-repeat="noti in notify">                                  
+                                <li class="message-preview">
                                         <a class="dropdown-item" href="javascript:;">
-                                            <div class="media"> <span class="media-left">                                         <img alt="" class="media-object" src="pics/slide_461162_6224974_sq50.jpg">                                     </span>
+                                            <div class="media"> <span class="media-left">                                        <img width="50px" height="50px" alt="User Avatar" class="img-circle" src="{{noti.profileImg}}">                                     </span>
                                                 <div class="media-body">
-                                                    <h5 class="media-heading"><strong></strong>                                         </h5>
-                                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                                    <p class="last"> Lorem ipsum dolor sit amet, consectetur...</p>
+                                                    <h5 class="media-heading"><strong>{{noti.username}}</strong>                                         </h5>
+                                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Posted on {{noti.time}}</p>
+                                                    <strong class="last">{{noti.title}}</strong> 
                                                 </div>
                                             </div>
                                         </a>
                                     </li>
                                     <hr>
-                                    <li class="message-preview">
-                                        <a class="dropdown-item" href="javascript:;">
-                                            <div class="media"> <span class="media-left">                                         <img alt="" class="media-object" src="pics/slide_461162_6224974_sq50.jpg">                                     </span>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading"><strong>John Smith</strong>                                         </h5>
-                                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                                    <p class="last"> Lorem ipsum dolor sit amet, consectetur...</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <hr>
-                                    <li class="message-preview">
-                                        <a class="dropdown-item" href="javascript:;">
-                                            <div class="media"> <span class="media-left">                                         <img alt="" class="media-object" src="pics/slide_461162_6224974_sq50.jpg">                                     </span>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading"><strong>John Smith</strong>                                         </h5>
-                                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                                    <p class="last"> Lorem ipsum dolor sit amet, consectetur...</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <hr>
+                                    </div>
+                                 
                                     <li class="dropdown-item message-footer"> <a class="dropdown-item text-center" href="javascript:;">Read All New Messages</a> </li>
                                 </ul>
                             </li>
                             <li class="dropdown nav-item" dropdown="">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:;" id="name2" aria-haspopup="true"> <i class="fa fa-bell"></i><span class="sr-only">(current)</span> </a>
                                 <ul aria-labelledby="name2" class="dropdown-menu alert-dropdown">
-                                    <li> <a class="dropdown-item" href="javascript:;">Alert Name <span class="label label-default"> Alert Badge</span></a> </li>
-                                    <li> <a class="dropdown-item" href="javascript:;">Alert Name <span class="label label-default"> Alert Badge</span></a> </li>
-                                    <li> <a class="dropdown-item" href="javascript:;">Alert Name <span class="label label-default"> Alert Badge</span></a> </li>
+                                    <li> <a class="dropdown-item" href="#/blank">Add Post</a> </li>
                                     <li class="dropdown-divider"></li>
-                                    <li> <a class="dropdown-item" href="javascript:;">View All</a> </li>
+                                    <li> <a class="dropdown-item" href="#/newdocument">Add Document</a> </li>
+                                   
+                                  
                                 </ul>
                             </li>
                             <li class="dropdown nav-item" dropdown="">
@@ -314,31 +310,14 @@
                     <ul class="list-group">
                         <a class="list-group-item router-link-active" routerlink="/dashboard/home" href="#/dashboard"> <i class="fa fa-fw fa-dashboard"></i> Home</a>
                         <a class="list-group-item" href="#/profile"> <i class="fa fa-fw fa-bar-chart-o"></i> Profile </a>
-<<<<<<< HEAD
-                        <a class="list-group-item" href="#/pending.html"> <i class="fa fa-fw fa-table"></i>Pending Approval</a>
-                        <a class="list-group-item" href="#/newdocument"> <i class="fa fa-fw fa-edit"></i>New Documents</a>
-=======
-<<<<<<< HEAD
-                        <a class="list-group-item" href="#/pending.html"> <i class="fa fa-fw fa-table"></i>Pending Approval</a>
-                        <a class="list-group-item" href="#/newdocument"> <i class="fa fa-fw fa-edit"></i>New Documents</a>
-=======
-                        <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/tables"> <i class="fa fa-fw fa-table"></i>Pending Approval</a>
-                        <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/forms"> <i class="fa fa-fw fa-edit"></i>New Documents</a>
->>>>>>> 4544cd10dbe57dd14de21964d4605a0694b1e612
->>>>>>> origin/master
+                        <a class="list-group-item" href="#/pending"> <i class="fa fa-fw fa-table"></i>Pending Approval</a>
+                        <a class="list-group-item" href="#/viewdocument"> <i class="fa fa-fw fa-edit"></i>New Documents</a>
                         <a class="list-group-item" href="#/viewuser"> <i class="fa fa-fw fa-desktop"></i> View Users </a>
-                        <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/grid"> <i class="fa fa-fw fa-wrench"></i> Other Department </a>
-                        <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/components"> <i class="fa fa-th-list"></i> &nbsp;Component </a>
-                        <div class="nested-menu">
-                            <a class="list-group-item"> <span><i class="fa fa-plus"></i> &nbsp; Logout</span> </a>
-                            <li class="nested">
-                                <ul class="submenu">
-                                    <li> <a href=""><span>Submenu</span></a> </li>
-                                    <li> <a href=""><span>Submenu</span></a> </li>
-                                </ul>
-                            </li>
-                        </div>
-                        <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/blankpage"> <i class="fa fa-file-o"></i> &nbsp;About us </a> <a class="list-group-item more-themes" href="http://www.strapui.com/">             More Themes         </a> </ul>
+                        <a class="list-group-item" href="#/otherdepartment"> <i class="fa fa-fw fa-wrench"></i> Other Department </a>
+                        <a class="list-group-item" href="" ng-click="logout()"> <i class="fa fa-th-list"></i> &nbsp;Logout </a>
+                        
+                       
+                        <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/blankpage"> <i class="fa fa-file-o"></i> &nbsp;About us </a>         </a> </ul>
                 </nav>
             </sidebar-cmp>
             <section class="main-container texture">
@@ -494,21 +473,89 @@
                         </alert>
                         <div class="row">
                             <div class="col-lg-8">
-                                <div class="col-lg-6 pad" style="padding-bottom:10px;" ng-repeat="user in articles">
-                                    <div class="demo-card-square mdl-card mdl-shadow--2dp ">
-                                        <div>
-                                            <!--Image here-->
-                                        </div>
-                                        <div class="mdl-card__title mdl-card--expand">
-                                            <h4 class="mdl-card__title-text">{{user.username}}</h4> </div>
-                                        <div class="mdl-card__supporting-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenan convallis. </div>
-                                        <div class="mdl-card__actions mdl-card--border"> <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                                    View Notice
-                                          </a> </div>
-                                    </div>
+                              <div class="container texture">
+                            <div ng-repeat="user in articles">
+                            <div class="column1">
+                                <div class="demo-title" style="padding-top: 30px;">{{user.username}}</div>
+                            <!-- Post-->
+                            <div class="post-module">
+                                <!-- Thumbnail-->
+                                  
+                                <div class="thumbnail">
+
+                                    <div class="date"> 
+                                      <img style="border-radius: 50%; width: 50px; height: 50px;" src="http://rknec.edu/Faculty/UserPhotos/chandakmb/DR.%20M.%20B.%20CHandak%20(5).JPG" /> </div><img src="{{user.images}}" /> </div>
+                                <!-- Post Content-->
+                                <div class="post-content">
+                                    <div class="category"><a style="color: white" href="{{user.images}}">View Notice</a> </div>
+                                    <div class="category1"> </div>
+
+
+                                    <h3 class="title" data-target="#ViewModal" data-toggle="modal" ng-click="viewCnf(user)">{{user.title}} </h3>
+                                    <p style="font-size : 13px"> {{user.Desc}}</p>
+                                   
+                                     <i style="color:#e74c3c" class="material-icons pull-right" data-target="#deleteModal" data-toggle="modal" ng-click="deleteCnf(user)">delete</i>
+                               
+                                  
+                                 
+                                    <div class="post-meta"><span class="timestamp"><i class="fa fa-clock-"></i>Date : {{user.time}}</span><span class="comments"><i class=""></i><a href="#"> </a></span></div>
+
                                 </div>
                             </div>
+                            <div class="container">
+                                <div id="deleteModal" class="modal fade" role="dailog">
+                                     <div class="modal-dialog">
+                                         <div class="modal-content">
+                                             
+                                             <div class="modal-body">
+                                                 <p>Are you sure you want to delete the notice?</p>
+                                             </div>
+                                             <div class="modal-footer">
+                                            
+                                                 <button type="button" class="btn btn-sm btn-danger" ng-click="deletepost(deleteArticle)">Delete</button>
+                                                  <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
+                                             </div>
+                                             
+                                         </div>
+                                     </div>
+                                 </div>
+                            </div>
+                            <div class="container">
+                                <div id="ViewModal" class="modal fade" role="dailog">
+                                     <div class="modal-dialog">
+                                     <div id="#outer">
+                                         <div class="modal-content">
+                                             
+                                             <div  class="modal-body">
+                                             <h6><strong>Title</strong></h6>
+   <hr>
+                                                 <h6>{{viewArticles.title}}</h6>
+                                                 <br> 
+
+                                                 <h6><strong>Description</strong></h6>
+                    <hr>
+                                                 <h6>{{viewArticles.Desc}}</h6>
+
+
+                                             </div>
+
+                                             <div class="modal-footer">
+                                                 
+                                                
+                                                  <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
+                                             </div>
+                                             
+                                         </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
                             <div class="col-lg-4">
+                            <div style="padding-top:65px;">
                                 <div class="card card-default">
                                     <div class="card-header"> <i class="fa fa-bell fa-fw"></i> Notifications card </div>
                                     <notifications-cmp>
@@ -518,6 +565,7 @@
                                             </div>
                                         </div>
                                     </notifications-cmp>
+                                </div>
                                 </div>
                                 <chat-cmp>
                                     <div class="chat-panel card card-default">

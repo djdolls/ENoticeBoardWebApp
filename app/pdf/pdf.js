@@ -1,21 +1,20 @@
 'use strict';
 
-angular.module('EnoticeBoardWebApp.blank', ['ngRoute'])
+angular.module('EnoticeBoardWebApp.pdf', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider){
-	$routeProvider.when('/blank',{
-		templateUrl: 'blank/blank.html',
-		controller: 'blankCtrl'
+	$routeProvider.when('/pdf',{
+		templateUrl: 'pdf/pdf.html',
+		controller: 'pdfCtrl'
 	});
 }])
 
-.controller('blankCtrl', ['$scope', '$firebaseArray', '$firebaseObject', '$firebaseAuth', function ($scope, $firebaseArray, $firebaseObject, $firebaseAuth) {
+.controller('pdfCtrl', ['$scope', '$firebaseArray', '$firebaseObject', '$firebaseAuth', function ($scope, $firebaseArray, $firebaseObject, $firebaseAuth) {
     var ref;
     var downloadURL;
     var Department;
     var Name;
-    var userId;
-    var profileImg;
+    var userId
     var useremail;
     var today = new Date();
     var dd = today.getDate();
@@ -37,9 +36,8 @@ angular.module('EnoticeBoardWebApp.blank', ['ngRoute'])
                 Department = snapshot.val().department;
                 Name = snapshot.val().name;
                  name = snapshot.val().name;
-                 profileImg = snapshot.val().images;
                  $scope.name = Name;
-                ref = firebase.database().ref().child('posts').child(Department).child('Deptposts');
+                ref = firebase.database().ref().child('posts').child(Department).child('Document');
                 $scope.articles = $firebaseArray(ref);
             });
         }
@@ -82,13 +80,11 @@ angular.module('EnoticeBoardWebApp.blank', ['ngRoute'])
             , Desc: post
             , UID: userId
             , approved: "true"
-            , images: downloadURL
+            , link: downloadURL
             , time: today
             , username: Name
-            , department: Department
-            , email: useremail
-            , removed: 1
-            ,profileImg : profileImg
+           
+          
         }).then(function (ref) {
             console.log(ref);
         }, function (error) {

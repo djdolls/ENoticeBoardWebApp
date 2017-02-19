@@ -16,13 +16,18 @@ angular.module('EnoticeBoardWebApp.dashboard', ['ngRoute']).config(['$routeProvi
                 name = snapshot.val().name;
                 $scope.depth = Department; //Department
                 $scope.name = name; //username
+                 var Level = snapshot.val().level;
+                 if(Level==2){
                 var ref = firebase.database().ref().child('posts').child(Department).child('Deptposts').orderByChild("approved").equalTo("true");
                 $scope.articles = $firebaseArray(ref);
                 var ref1 = firebase.database().ref().child('posts').child(Department).child('Deptposts').orderByChild("approved").equalTo("pending");
                 $scope.pending = $firebaseArray(ref1);
+                 var ref11 = firebase.database().ref().child('posts').child(Department).child('Approved').orderByChild("servertime").limitToFirst(3);
+                $scope.notify = $firebaseArray(ref11);
                 var ref2 = firebase.database().ref().child('Users').orderByChild("department").equalTo(Department);
                 $scope.users = $firebaseArray(ref2);
                 console.log($scope.pending);
+            }
             });
         }
         else {
@@ -43,4 +48,18 @@ angular.module('EnoticeBoardWebApp.dashboard', ['ngRoute']).config(['$routeProvi
         console.log("DJDJDJJDJ");
         CommonProp.logoutUser();
     }
+      $scope.deleteCnf = function (user) {
+        $scope.deleteArticle = user;
+        console.log($scope.deleteArticle.username);
+    };
+   $scope.viewCnf = function (user) {
+        $scope.viewArticles = user;
+        console.log($scope.viewArticles);
+    };
+      $scope.deletepost = function (deleteArticle) {
+
+        $scope.articles.$remove(deleteArticle);
+        $("#deleteModal").modal('hide');
+    };
+
   }])

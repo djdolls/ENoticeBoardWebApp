@@ -1,21 +1,20 @@
 'use strict';
 
-angular.module('EnoticeBoardWebApp.blank', ['ngRoute'])
+angular.module('EnoticeBoardWebApp.otherdepartment', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider){
-	$routeProvider.when('/blank',{
-		templateUrl: 'blank/blank.html',
-		controller: 'blankCtrl'
-	});
+    $routeProvider.when('/otherdepartment',{
+        templateUrl: 'otherdepartment/otherdepartment.html',
+        controller: 'otherdepartmentCtrl'
+    });
 }])
 
-.controller('blankCtrl', ['$scope', '$firebaseArray', '$firebaseObject', '$firebaseAuth', function ($scope, $firebaseArray, $firebaseObject, $firebaseAuth) {
+.controller('otherdepartmentCtrl', ['$scope', '$firebaseArray', '$firebaseObject', '$firebaseAuth', function ($scope, $firebaseArray, $firebaseObject, $firebaseAuth) {
     var ref;
     var downloadURL;
     var Department;
     var Name;
-    var userId;
-    var profileImg;
+    var userId
     var useremail;
     var today = new Date();
     var dd = today.getDate();
@@ -36,11 +35,7 @@ angular.module('EnoticeBoardWebApp.blank', ['ngRoute'])
             var reff = firebase.database().ref('/Users/' + userId).once('value').then(function (snapshot) {
                 Department = snapshot.val().department;
                 Name = snapshot.val().name;
-                 name = snapshot.val().name;
-                 profileImg = snapshot.val().images;
-                 $scope.name = Name;
-                ref = firebase.database().ref().child('posts').child(Department).child('Deptposts');
-                $scope.articles = $firebaseArray(ref);
+
             });
         }
     });
@@ -73,29 +68,39 @@ angular.module('EnoticeBoardWebApp.blank', ['ngRoute'])
             console.log(downloadURL);
         });
     };
+   
     $scope.createPost = function () {
         var title = $scope.articles.titletxt;
         var post = $scope.articles.posttxt;
+        var Dept123 = $scope.articles.val;
+        if(!title&&!post&&!Dept123&&!downloadURL){
+            alert("DJ");
+        }
+        else{
+            alert("sdsds");
+        }
+                        ref = firebase.database().ref().child('posts').child(Dept123).child('Deptposts');
+                $scope.articles = $firebaseArray(ref);
         console.log(useremail);
         $scope.articles.$add({
             title: title
             , Desc: post
             , UID: userId
-            , approved: "true"
+            , approved: "pending"
             , images: downloadURL
             , time: today
             , username: Name
             , department: Department
             , email: useremail
             , removed: 1
-            ,profileImg : profileImg
         }).then(function (ref) {
             console.log(ref);
         }, function (error) {
             console.log(error);
         });
     };
-	}]);
+
+    }]);
 angular.module('MyApp').controller('AppCtrl', function ($scope) {
     $scope.users = ['Fabio', 'Leonardo', 'Thomas', 'Gabriele', 'Fabrizio', 'John', 'Luis', 'Kate', 'Max'];
 });

@@ -162,6 +162,21 @@ body {
   font-weight: bold;
   text-transform: uppercase;
 }
+.container .column1{
+  width: 46%;
+  padding: 0 25px;
+  -webkti-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+}
+.container .column1 .demo-title {
+  margin: 0 0 15px;
+  color: #666666;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 .container .info {
   width: 300px;
   margin: 50px auto;

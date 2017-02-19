@@ -42,7 +42,10 @@ console.log(username);
 });
 var ref = firebase.database().ref().child('posts').child("CSE").child('Deptposts').orderByChild("approved").equalTo("pending");
 $scope.articles  = $firebaseArray(ref);
-
+$scope.logout = function () {
+        console.log("DJDJDJJDJ");
+        CommonProp.logoutUser();
+    }
 
   // ...
 
