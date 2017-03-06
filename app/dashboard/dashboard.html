@@ -11,7 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- inject:css -->
     <link rel="stylesheet" href="pics/main.css">
-      <link rel="stylesheet" href="pendingcss/style.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="pendingcss/style.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="pendingcss/stylenew.css" media="screen" type="text/css" />
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
@@ -232,18 +233,18 @@
         /*# sourceMappingURL=timeline.css.map */
     </style>
     <style>
-.demo-card-wide.mdl-card {
-  width: 512px;
-}
-.demo-card-wide > .mdl-card__title {
-  color: #fff;
- 
- 
-}
-.demo-card-wide > .mdl-card__menu {
-  color: #fff;
-}
-</style>
+        .demo-card-wide.mdl-card {
+            width: 512px;
+        }
+        
+        .demo-card-wide > .mdl-card__title {
+            color: #fff;
+        }
+        
+        .demo-card-wide > .mdl-card__menu {
+            color: #fff;
+        }
+    </style>
 </head>
 
 <body ng-app="EnoticeBoardWebApp">
@@ -255,45 +256,38 @@
                     <div class="collapse navbar-toggleable-xs clearfix text-center"> <a class="navbar-brand" href="#/dashboard">Enotice Board</a>
                         <ul class="nav navbar-nav top-nav navbar-right pull-xs-right top-right-nav">
                             <li class="nav-item buy-now"> <a class="btn btn-default-outline buy-now-btn" href="https://github.com/start-angular/SB-Admin-BS4-Angular-2/archive/master.zip" role="button" style="padding: .375rem 1rem !important; border-color: #999;">Download App</a> </li>
-                            <li class="dropdown nav-item" dropdown=""> <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:;" id="dropdownMenu4" aria-haspopup="true"><i class="fa fa-envelope"></i><span class="sr-only">(current)</span></a>
+                            <li class="dropdown nav-item" dropdown=""> <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:;" id="dropdownMenu4" aria-haspopup="true"><i class="fa fa-bell"></i><span class="sr-only">(current)</span></a>
                                 <ul aria-labelledby="dropdownMenu4" class="dropdown-menu message-dropdown">
-                                   
-                                               
-                                
-                                    <div ng-repeat="noti in notify">                                  
-                                <li class="message-preview">
-                                        <a class="dropdown-item" href="javascript:;">
-                                            <div class="media"> <span class="media-left">                                        <img width="50px" height="50px" alt="User Avatar" class="img-circle" src="{{noti.profileImg}}">                                     </span>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading"><strong>{{noti.username}}</strong>                                         </h5>
-                                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Posted on {{noti.time}}</p>
-                                                    <strong class="last">{{noti.title}}</strong> 
+                                    <div ng-repeat="noti in notify">
+                                        <li class="message-preview">
+                                            <a class="dropdown-item" href="javascript:;">
+                                                <div class="media"> <span class="media-left">                                        <img width="50px" height="50px" alt="User Avatar" class="img-circle" src="{{noti.profileImg}}">                                     </span>
+                                                    <div class="media-body">
+                                                        <h5 class="media-heading"><strong>{{noti.username}}</strong>                                         </h5>
+                                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Posted on {{noti.time}}</p> <strong class="last">{{noti.title}}</strong> </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <hr>
-                                    </div>
-                                 
+                                            </a>
+                                        </li>
+                                        <hr> </div>
                                     <li class="dropdown-item message-footer"> <a class="dropdown-item text-center" href="javascript:;">Read All New Messages</a> </li>
                                 </ul>
                             </li>
                             <li class="dropdown nav-item" dropdown="">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:;" id="name2" aria-haspopup="true"> <i class="fa fa-bell"></i><span class="sr-only">(current)</span> </a>
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:;" id="name2" aria-haspopup="true"> <i class="fa fa-pencil"></i><span class="sr-only">(current)</span> </a>
                                 <ul aria-labelledby="name2" class="dropdown-menu alert-dropdown">
+                                    <li> <a class="dropdown-item" href="#/addtext">Add Text</a> </li>
+                                    <li class="dropdown-divider"></li>
                                     <li> <a class="dropdown-item" href="#/blank">Add Post</a> </li>
                                     <li class="dropdown-divider"></li>
                                     <li> <a class="dropdown-item" href="#/newdocument">Add Document</a> </li>
-                                   
-                                  
                                 </ul>
                             </li>
                             <li class="dropdown nav-item" dropdown="">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:;" id="single-button" aria-haspopup="true"> <i class="fa fa-user"></i> {{name}} </a>
                                 <ul aria-labelledby="single-button" class="dropdown-menu">
-                                    <li> <a class="dropdown-item" href="#/profile"><i class="fa fa-fw fa-user"></i> Profile</a> </li>
+                                    <li> <a class="dropdown-item" href="#/profile"><i class="fa fa-fw fa-user"></i>Profile</a> </li>
                                     <li> <a class="dropdown-item" href="#/pending"><i class="fa fa-fw fa-envelope"></i> Inbox</a> </li>
-                                    <li> <a class="dropdown-item" href="javascript:;"><i class="fa fa-fw fa-gear"></i> Settings</a> </li>
+                                    <li> <a class="dropdown-item" href="#/editprofile"><i class="fa fa-fw fa-gear"></i> Settings</a> </li>
                                     <li class="divider"></li>
                                     <li>
                                         <a class="dropdown-item" ng-click="logout()" href=""> <i class="fa fa-fw fa-power-off"></i> Log Out </a>
@@ -311,13 +305,12 @@
                         <a class="list-group-item router-link-active" routerlink="/dashboard/home" href="#/dashboard"> <i class="fa fa-fw fa-dashboard"></i> Home</a>
                         <a class="list-group-item" href="#/profile"> <i class="fa fa-fw fa-bar-chart-o"></i> Profile </a>
                         <a class="list-group-item" href="#/pending"> <i class="fa fa-fw fa-table"></i>Pending Approval</a>
-                        <a class="list-group-item" href="#/viewdocument"> <i class="fa fa-fw fa-edit"></i>New Documents</a>
                         <a class="list-group-item" href="#/viewuser"> <i class="fa fa-fw fa-desktop"></i> View Users </a>
                         <a class="list-group-item" href="#/otherdepartment"> <i class="fa fa-fw fa-wrench"></i> Other Department </a>
                         <a class="list-group-item" href="" ng-click="logout()"> <i class="fa fa-th-list"></i> &nbsp;Logout </a>
-                        
-                       
-                        <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/blankpage"> <i class="fa fa-file-o"></i> &nbsp;About us </a>         </a> </ul>
+                        <a class="list-group-item" href="http://rawgit.com/start-angular/SB-Admin-BS4-Angular-2/master/dist/prod/dashboard/blankpage"> <i class="fa fa-file-o"></i> &nbsp;About us </a>
+                        </a>
+                    </ul>
                 </nav>
             </sidebar-cmp>
             <section class="main-container texture">
@@ -444,14 +437,14 @@
                                         <div class="row">
                                             <div class="col-xs-3"> <i class="fa fa-support fa-5x"></i> </div>
                                             <div class="col-xs-9 text-xs-right">
-                                                <div class="huge">13</div>
+                                                <div class="huge">{{principal1.length}}</div>
                                                 <div>
                                                     <br> Principal Corner!</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-footer card-red">
-                                        <a class="text-danger" href="javascript:void(0);"> <span class="pull-xs-left">View Details</span> <span class="pull-xs-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                        <a class="text-danger" href="#/principal"> <span class="pull-xs-left">View Details</span> <span class="pull-xs-right"><i class="fa fa-arrow-circle-right"></i></span>
                                             <div class="clearfix"></div>
                                         </a>
                                     </div>
@@ -473,89 +466,161 @@
                         </alert>
                         <div class="row">
                             <div class="col-lg-8">
-                              <div class="container texture">
-                            <div ng-repeat="user in articles">
-                            <div class="column1">
-                                <div class="demo-title" style="padding-top: 30px;">{{user.username}}</div>
-                            <!-- Post-->
-                            <div class="post-module">
-                                <!-- Thumbnail-->
-                                  
-                                <div class="thumbnail">
-
-                                    <div class="date"> 
-                                      <img style="border-radius: 50%; width: 50px; height: 50px;" src="http://rknec.edu/Faculty/UserPhotos/chandakmb/DR.%20M.%20B.%20CHandak%20(5).JPG" /> </div><img src="{{user.images}}" /> </div>
-                                <!-- Post Content-->
-                                <div class="post-content">
-                                    <div class="category"><a style="color: white" href="{{user.images}}">View Notice</a> </div>
-                                    <div class="category1"> </div>
-
-
-                                    <h3 class="title" data-target="#ViewModal" data-toggle="modal" ng-click="viewCnf(user)">{{user.title}} </h3>
-                                    <p style="font-size : 13px"> {{user.Desc}}</p>
-                                   
-                                     <i style="color:#e74c3c" class="material-icons pull-right" data-target="#deleteModal" data-toggle="modal" ng-click="deleteCnf(user)">delete</i>
-                               
-                                  
-                                 
-                                    <div class="post-meta"><span class="timestamp"><i class="fa fa-clock-"></i>Date : {{user.time}}</span><span class="comments"><i class=""></i><a href="#"> </a></span></div>
-
+                                <div class="container texture">
+                                    <div ng-repeat="user in articles">
+                                        <div ng-if="user.type == 2">
+                                            <div class="column1">
+                                                <div class="demo-title" style="padding-top: 30px;">{{user.username}}</div>
+                                                <!-- Post-->
+                                                <div class="post-module">
+                                                    <!-- Thumbnail-->
+                                                    <div class="thumbnail">
+                                                        <div class="date"> <img style="border-radius: 50%; width: 50px; height: 50px;" src="{{user.profileImg}}" /> </div>
+                                                        <a href="{{user.images}}"><img src="{{user.images}}" /></a>
+                                                    </div>
+                                                    <!-- Post Content-->
+                                                    <div class="post-content">
+                                                        <div class="category"><a style="color: white" href="{{user.images}}">{{user.label}}</a> </div>
+                                                        <div class="category1"> </div>
+                                                        <a href="">
+                                                            <p class="title" data-target="#ViewModal" data-toggle="modal" ng-click="viewCnf(user)">{{user.title}} </p>
+                                                        </a>
+                                                        <a href="">
+                                                            <p data-target="#ViewModal" data-toggle="modal" ng-click="viewCnf(user)" style="font-size : 13px; color:black"> {{user.Desc}}</p>
+                                                        </a>
+                                                        <a href=""> <i style="color:#e74c3c" class="material-icons pull-right" data-target="#deleteModal" data-toggle="modal" ng-click="deleteCnf(user)">delete</i></a>
+                                                        <div class="post-meta"><span class="timestamp"><i class="fa fa-clock-"></i>Date : {{user.time}}</span><span class="comments"><i class=""></i><a href="#"> </a></span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="container">
+                                                    <div id="deleteModal" class="modal fade" role="dailog">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-body">
+                                                                    <p>Are you sure you want to delete the notice?</p>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-sm btn-danger" ng-click="deletepost(deleteArticle)">Delete</button>
+                                                                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="container">
+                                                    <div id="ViewModal" class="modal fade" role="dailog">
+                                                        <div class="modal-dialog">
+                                                            <div id="#outer">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-body">
+                                                                        <h6><strong>Title</strong></h6>
+                                                                        <hr>
+                                                                        <h6>{{viewArticles.title}}</h6>
+                                                                        <br>
+                                                                        <h6><strong>Description</strong></h6>
+                                                                        <hr>
+                                                                        <h6>{{viewArticles.Desc}}</h6> </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div ng-if="user.type == 3">
+                                            <div class="column1">
+                                                <div class="demo-title" style="padding-top: 30px;">{{user.username}}</div>
+                                                <!-- Post-->
+                                                <div class="post-module">
+                                                    <!-- Thumbnail-->
+                                                    <div class="thumbnail">
+                                                        <div class="date"> <img style="border-radius: 50%; width: 50px; height: 50px;" src="http://rknec.edu/Faculty/UserPhotos/chandakmb/DR.%20M.%20B.%20CHandak%20(5).JPG" /> </div>
+                                                        <a href="{{user.link}}"><img src="http://www.besttemplate123.com/wp-content/uploads/2016/03/Project-Initiation-Document-PDF-Example.jpg" /> </a>
+                                                    </div>
+                                                    <!-- Post Content-->
+                                                    <div class="post-content">
+                                                        <div class="category"><a style="color: white" href="{{user.images}}">{{user.label}}</a> </div>
+                                                        <div class="category1"> </div>
+                                                        <a href="">
+                                                            <h3 class="title" data-target="#ViewModal" data-toggle="modal" ng-click="viewCnf(user)">{{user.title}} </h3></a>
+                                                        <a href="">
+                                                            <p style="font-size : 13px; color : black"> {{user.Desc}}</p>
+                                                        </a>
+                                                        <a href=""> <i style="color:#e74c3c" class="material-icons pull-right" data-target="#deleteModal" data-toggle="modal" ng-click="deleteCnf(user)">delete</i></a>
+                                                        <div class="post-meta"><span class="timestamp"><i class="fa fa-clock-"></i>Date : {{user.time}}</span><span class="comments"><i class=""></i><a href="#"> </a></span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="container">
+                                                    <div id="deleteModal" class="modal fade" role="dailog">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-body">
+                                                                    <p>Are you sure you want to delete the notice?</p>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-sm btn-danger" ng-click="deletepost(deleteArticle)">Delete</button>
+                                                                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="container">
+                                                    <div id="ViewModal" class="modal fade" role="dailog">
+                                                        <div class="modal-dialog">
+                                                            <div id="#outer">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-body">
+                                                                        <h6><strong>Title</strong></h6>
+                                                                        <hr>
+                                                                        <h6>{{viewArticles.title}}</h6>
+                                                                        <br>
+                                                                        <h6><strong>Description</strong></h6>
+                                                                        <hr>
+                                                                        <h6>{{viewArticles.Desc}}</h6> </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--start here-->
+                                        <div ng-if="user.type == 1">
+                                            <div class="column1" style="">
+                                                <div class="demo-title" style="padding-top: 30px;">{{user.username}}</div>
+                                                <!-- Post-->
+                                                <div class="post-module1 hover">
+                                                    <!-- Thumbnail-->
+                                                    <div class="thumbnail1">
+                                                        <div class="date1"> <img style="border-radius: 50%; width: 50px; height: 50px;" src="{{user.profileImg}}" /> </div>
+                                                    </div>
+                                                    <!-- Post Content-->
+                                                    <div class="post-content">
+                                                        <div class="category"><a style="color: white" href="{{user.images}}">{{user.label}}</a> </div>
+                                                        <a href="">
+                                                            <p class="title" data-target="#ViewModal" data-toggle="modal" ng-click="viewCnf(user)">{{user.title}}</p>
+                                                        </a>
+                                                        <a href="">
+                                                            <p data-target="#ViewModal" data-toggle="modal" ng-click="viewCnf(user)" class="description">{{user.Desc}}</p>
+                                                        </a> <a href=""><i style="color:#e74c3c" class="material-icons pull-right" data-target="#deleteModal" data-toggle="modal" ng-click="deleteCnf(user)">delete</i></a>
+                                                        <div class="post-meta"><span class="timestamp"><i class="fa fa-clock-o"></i> Date : {{user.time}}</span><span class="comments"><a href="#"> </a></span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--End here -->
+                                    </div>
                                 </div>
                             </div>
-                            <div class="container">
-                                <div id="deleteModal" class="modal fade" role="dailog">
-                                     <div class="modal-dialog">
-                                         <div class="modal-content">
-                                             
-                                             <div class="modal-body">
-                                                 <p>Are you sure you want to delete the notice?</p>
-                                             </div>
-                                             <div class="modal-footer">
-                                            
-                                                 <button type="button" class="btn btn-sm btn-danger" ng-click="deletepost(deleteArticle)">Delete</button>
-                                                  <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
-                                             </div>
-                                             
-                                         </div>
-                                     </div>
-                                 </div>
-                            </div>
-                            <div class="container">
-                                <div id="ViewModal" class="modal fade" role="dailog">
-                                     <div class="modal-dialog">
-                                     <div id="#outer">
-                                         <div class="modal-content">
-                                             
-                                             <div  class="modal-body">
-                                             <h6><strong>Title</strong></h6>
-   <hr>
-                                                 <h6>{{viewArticles.title}}</h6>
-                                                 <br> 
-
-                                                 <h6><strong>Description</strong></h6>
-                    <hr>
-                                                 <h6>{{viewArticles.Desc}}</h6>
-
-
-                                             </div>
-
-                                             <div class="modal-footer">
-                                                 
-                                                
-                                                  <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
-                                             </div>
-                                             
-                                         </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
                             <div class="col-lg-4">
-                            <div style="padding-top:65px;">
+                                <!--   <div style="padding-top:65px;">
                                 <div class="card card-default">
                                     <div class="card-header"> <i class="fa fa-bell fa-fw"></i> Notifications card </div>
                                     <notifications-cmp>
@@ -566,50 +631,49 @@
                                         </div>
                                     </notifications-cmp>
                                 </div>
-                                </div>
-                                <chat-cmp>
-                                    <div class="chat-panel card card-default">
-                                        <div class="card-header"> <i class="fa fa-comments fa-fw"></i> Text Notices
-                                            <div class="pull-right dropdown" dropdown="">
-                                                <button class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" id="chat-dropdown" type="button" aria-haspopup="true"> </button>
-                                                <ul aria-labelledby="chat-dropdown" class="dropdown-menu" role="menu">
-                                                    <li role="menuitem">
-                                                        <a class="dropdown-item" href="#"> <i class="fa fa-refresh fa-fw"></i> Refresh</a>
-                                                    </li>
-                                                    <li role="menuitem">
-                                                        <a class="dropdown-item" href="#"> <i class="fa fa-check-circle fa-fw"></i> Available</a>
-                                                    </li>
-                                                    <li role="menuitem">
-                                                        <a class="dropdown-item" href="#"> <i class="fa fa-times fa-fw"></i> Busy</a>
-                                                    </li>
-                                                    <li class="divider dropdown-divider"></li>
-                                                    <li role="menuitem">
-                                                        <a class="dropdown-item" href="#"> <i class="fa fa-times fa-fw"></i> Busy </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="#"> <i class="fa fa-clock-o fa-fw"></i> Away </a>
-                                                    </li>
-                                                    <li class="divider"></li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="#"> <i class="fa fa-sign-out fa-fw"></i> Sign Out </a>
-                                                    </li>
+                                </div> -->
+                                <div style="padding-top:65px;">
+                                    <chat-cmp>
+                                        <div class="chat-panel card card-default">
+                                            <div class="card-header"> <i class="fa fa-bell fa-fw"></i> User Activity
+                                                <div class="pull-right dropdown" dropdown="">
+                                                    <button class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" id="chat-dropdown" type="button" aria-haspopup="true"> </button>
+                                                    <ul aria-labelledby="chat-dropdown" class="dropdown-menu" role="menu">
+                                                        <li role="menuitem">
+                                                            <a class="dropdown-item" href="#"> <i class="fa fa-refresh fa-fw"></i> Refresh</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="card-block">
+                                                <ul class="chat">
+                                                    <div ng-repeat="user in pending">
+                                                        <li class="left clearfix"> <span class="chat-img pull-left">                     <img width="50px" height="50px" alt="User Avatar" class="img-circle" src="{{user.profileImg}}">                 </span>
+                                                            <div class="chat-body clearfix">
+                                                                <div class="header"> <strong style="font-size: 12px;" class="primary-font">{{user.username}}</strong> <small class="pull-right text-muted"> 
+                                                            <div ng-if="user.type == 2">
+                                                            <div style="padding-left:25px;">
+                                                            <i style="" class="material-icons">add_a_photo</i> </div>
+                                                             </div>  
+                                                             <div ng-if="user.type == 1">
+                                                            <div style="padding-left:25px;">
+                                                           <i class="material-icons">text_format</i> </div>
+                                                             </div>
+                                                              <div ng-if="user.type == 3">
+                                                            <div style="padding-left:25px;">
+                                                          <i class="material-icons">description</i> </div>
+                                                             </div>
+                                                                       <i class="fa fa-clock-o fa-fw"></i> {{user.time}}           </small> </div>
+                                                                <p><strong style="font-size: 12px;">{{user.title}} </strong></p>
+                                                                <p style="font-size: 12px;">{{user.Desc}}</p>
+                                                            </div>
+                                                        </li>
+                                                    </div>
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="card-block">
-                                            <ul class="chat">
-                                                <div ng-repeat="user in pending">
-                                                    <li class="left clearfix"> <span class="chat-img pull-left">                     <img width="50px" height="50px" alt="User Avatar" class="img-circle" src="http://rknec.edu/Faculty/UserPhotos/agrawalaj/my%20photo1.png">                 </span>
-                                                        <div class="chat-body clearfix">
-                                                            <div class="header"> <strong class="primary-font">{{user.username}}</strong> <small class="pull-right text-muted">               <i class="fa fa-clock-o fa-fw"></i> {{user.time}}           </small> </div>
-                                                            <p>{{user.Desc}} </p>
-                                                        </div>
-                                                    </li>
-                                                </div>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </chat-cmp>
+                                    </chat-cmp>
+                                </div>
                             </div>
                         </div>
                     </div>

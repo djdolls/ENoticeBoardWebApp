@@ -4,14 +4,12 @@
  * Released under the MIT license
  */
 
-.btn-file
-{
+.btn-file {
     overflow: hidden;
     position: relative;
 }
 
-.btn-file input[type=file]
-{
+.btn-file input[type=file] {
     background: white;
     cursor: inherit;
     display: block;
@@ -26,24 +24,20 @@
     top: 0;
 }
 
-.img-upload .alert
-{
+.img-upload .alert {
     margin-bottom: 10px;
 }
 
-.img-remove-btn
-{
+.img-remove-btn {
     display: none;
 }
 
-.img-upload img
-{
+.img-upload img {
     margin-top: 10px;
     max-height: 250px;
     max-width: 250px;
 }
 
-.img-url-tab
-{
+.img-url-tab {
     display: none;
 }

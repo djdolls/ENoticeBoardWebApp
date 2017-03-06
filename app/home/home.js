@@ -18,15 +18,25 @@ angular.module('EnoticeBoardWebApp.home', ['ngRoute', 'firebase']).config(['$rou
             var auth = $firebaseAuth();
             auth.$signInWithEmailAndPassword(username, password).then(function () {
                 var userId = firebase.auth().currentUser.uid;
+                var emailVerified;
+                emailVerified = userId.emailVerified;
+                console.log(emailVerified);
                 console.log(userId);
                 var reff = firebase.database().ref('/Users/' + userId).once('value').then(function (snapshot) {
                     var Department = snapshot.val().department;
+                    var level = snapshot.val().level;
+                    var block = snapshot.val().block;
+                    $timeout(function () {
+                        $scope.loading = false;
+                        if (level == 99 || block == "Yes") {
+                            $location.path('/report');
+                        }
+                        else {
+                            $location.path('/dashboard');
+                        }
+                    }, 2500);
                 });
                 CommonProp.setUser($scope.user.email);
-                $timeout(function () {
-                    $scope.loading = false;
-                    $location.path('/dashboard');
-                }, 2500);
                 //$location.path('/dashboard');
             }).catch(function (error) {
                 $scope.errMsg = true;
@@ -35,7 +45,7 @@ angular.module('EnoticeBoardWebApp.home', ['ngRoute', 'firebase']).config(['$rou
         }
         //signup
     $scope.signUp = function () {
-      /*  var username = $scope.user.email;
+        var username = $scope.user.email;
         var password = $scope.user.password;
         var name = $scope.user.username;
         var val = $scope.user.val;
@@ -57,6 +67,13 @@ angular.module('EnoticeBoardWebApp.home', ['ngRoute', 'firebase']).config(['$rou
             auth.$createUserWithEmailAndPassword(username, password).then(function () {
                 console.log("success");
                 var userId = firebase.auth().currentUser.uid;
+                var user = firebase.auth().currentUser;
+                user.sendEmailVerification().then(function () {
+                    console.log("email send");
+                    // Email sent.
+                }, function (error) {
+                    // An error happened.
+                });
                 console.log(userId);
                 var ref = firebase.database().ref().child('Users').child(userId);
                 $scope.articles = $firebaseArray(ref);
@@ -82,7 +99,6 @@ angular.module('EnoticeBoardWebApp.home', ['ngRoute', 'firebase']).config(['$rou
         }
         $(".msg").show();
         $(".msg1").hide();
-        */
     };
 }]).service('CommonProp', ['$location', '$firebaseAuth', function ($location, $firebaseAuth) {
     var user = "";

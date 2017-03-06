@@ -1,15 +1,10 @@
 'use strict';
-
-angular.module('EnoticeBoardWebApp.pdf', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider){
-	$routeProvider.when('/pdf',{
-		templateUrl: 'pdf/pdf.html',
-		controller: 'pdfCtrl'
-	});
-}])
-
-.controller('pdfCtrl', ['$scope', '$firebaseArray', '$firebaseObject', '$firebaseAuth', function ($scope, $firebaseArray, $firebaseObject, $firebaseAuth) {
+angular.module('EnoticeBoardWebApp.pdf', ['ngRoute']).config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/pdf', {
+        templateUrl: 'pdf/pdf.html'
+        , controller: 'pdfCtrl'
+    });
+}]).controller('pdfCtrl', ['$scope', '$firebaseArray', '$firebaseObject', '$firebaseAuth', function ($scope, $firebaseArray, $firebaseObject, $firebaseAuth) {
     var ref;
     var downloadURL;
     var Department;
@@ -35,8 +30,8 @@ angular.module('EnoticeBoardWebApp.pdf', ['ngRoute'])
             var reff = firebase.database().ref('/Users/' + userId).once('value').then(function (snapshot) {
                 Department = snapshot.val().department;
                 Name = snapshot.val().name;
-                 name = snapshot.val().name;
-                 $scope.name = Name;
+                name = snapshot.val().name;
+                $scope.name = Name;
                 ref = firebase.database().ref().child('posts').child(Department).child('Document');
                 $scope.articles = $firebaseArray(ref);
             });
@@ -83,8 +78,6 @@ angular.module('EnoticeBoardWebApp.pdf', ['ngRoute'])
             , link: downloadURL
             , time: today
             , username: Name
-           
-          
         }).then(function (ref) {
             console.log(ref);
         }, function (error) {
